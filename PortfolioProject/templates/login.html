@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login
+
+{% endblock title %}
+
+{% block hero %}
+{% load socialaccount %}
+<!-- Applied boptstrap below and written the form tag inside it. -->
+  <div class ="row"> 
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h1 class ="text-center">Login</h1>
+        <br>
+        {% for message in messages %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+               <strong>{{message}}</strong>
+               <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">bootstrap4 -->
+               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> 
+               <!-- <span aria-hidden="true">&times;</span>The btn-close already has a close (×) symbol built-in. By adding <span>&times;</span> inside it, it's causing two overlapping "×"s -->
+               </button> 
+          
+
+          </div>
+        {% endfor %}
+        <div class = "d-grid gap-2">
+
+        <a href="{% provider_login_url 'google' %}" class="btn btn-outline-success">Login with Google <i class="fa-brands fa-google"></i></a>
+        </div>
+        <hr>
+
+        <form action = "/login " method ="post">{% csrf_token %}
+        
+
+         <div class ="form -group mt-2">
+            <label for ="email">Email <i class="fa-solid fa-envelope"></i></label>
+            <input type = "email" class ="form-control p-2" name ="email"
+            placeholder="Enter your email" required id="email">
+
+         </div>
+       
+
+         <div class ="form -group mt-2">
+           <label for ="pass1">Password <i class="fa-solid fa-lock"></i></label>
+           <input type = "password" class ="form-control p-2" name ="pass1"
+            placeholder="Enter your Password" required id="pass1">
+    
+         </div>
+
+      
+
+  <!-- <button type ="submit" class = "btn btn-success mt-3 btn block">Signup</button> -->
+   <br>
+    <div class="d-grid gap-2 ">
+      <button class="btn btn-outline-success p-2" type="submit">Login</button>
+    
+    </div>
+  </form>
+  <hr>
+  New User? <a href ="/signup">Signup </a>
+</div>
+
+<div class="col-md-4"></div>
+</div>
+<!-- bootsrtap ended with form tag inside it -->
+{% endblock hero %}
+{% block body %}
+
+<h1>Welcome to Login Page </h1>
+{% endblock body %}

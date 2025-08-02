@@ -1,0 +1,110 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+About
+
+{% endblock title %}
+
+{% block hero %}
+<h1>My Bio Details and Resume</h1>
+<p>I'm a <span class="typed" data-typed-items="Software Engineer,Designer, Developer, Freelancer, Photographer">Designer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+
+{% endblock hero %}
+
+{% block body %}
+<!-- Resume Section -->
+    <section id="resume" class="resume section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Resume</h2>
+        <p>My Resume details hope you like it.</p>
+        <a href="{% static 'assets/Resume.pdf' %}" download class="btn btn-success">Download CV</a>
+
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Summary</h3>
+
+            <div class="resume-item pb-0">
+              <h4>Kajal Chand</h4>
+              <p><em>Innovative and deadline-driven Software Engineer with 1.6 years of experience in web development, including
+                     6 months in PHP/MySQL and 1 year in Python/Django. Skilled in backend development,data handling, and building real-world applications with clean, maintainable code..</em></p>
+              <ul>
+                <li>Uttarakhand, India </li>
+                <!-- <li>(123) 456-7891</li> -->
+                <li>Email: kajalchand08@gmail.com</li>
+              </ul>
+            </div><!-- Edn Resume Item -->
+
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>Bachelor of Technology &amp; Computer science & engineering</h4>
+              <h5>2015 - 2018</h5>
+              <p><em>Dev Bhoomi Institute of Technology, Dehradun,India</em></p>
+              <!-- <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p> -->
+            </div><!-- Edn Resume Item -->
+
+            <div class="resume-item">
+              <h4>Three years of Diploma &amp; Computer science & engineering </h4>
+              <h5>2012 - 2015</h5>
+              <p><em>Government girls Polytechnic,Dehradun</em></p>
+              <!-- <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p> -->
+            </div><!-- Edn Resume Item -->
+
+            
+
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="resume-title">Professional Experience</h3>
+            <div class="resume-item">
+              <h4>Software Engineer</h4>
+              <h5>2024-2025</h5>
+              <p><em>Fixigo,Noida</em></p>
+              <ul>
+                <li>Worked on backend development using Python and Django for managing car service bookings and records.</li>
+                <li>Created and updated features like service forms, customer details, and invoice pages. </li>
+                <li>Assisted in debugging, testing, and improving existing code.</li>
+                <li>Used Git for version control and worked with the team to deliver project tasks on time.</li>
+              </ul>
+            </div><!-- Edn Resume Item -->
+
+            <div class="resume-item">
+              <h4>Software Engineer</h4>
+              <h5>AUG 2023 - FEB 2024</h5>
+              <p><em>Ginger Webs Pvt. Ltd.</em></p>
+              <ul>
+                <li>Developed registration systems for education portals using PHP and MySQL..</li>
+                <li>Managed candidate preferences, admit card generation, and real-time data panels.</li>
+                <li>Collaborated with cross-functional teams to deliver backend features.</li>
+                <li>Created design presentations and proposals a month for  Senior managers</li>
+              </ul>
+            </div><!-- Edn Resume Item -->
+
+             <div class="resume-item">
+              <h4>Independent Learning & Projects </h4>
+              <h5>Jul 2018 - Jun 2023</h5>
+              <!-- <p><em>Ginger Webs Pvt. Ltd.</em></p> -->
+              <ul>
+                <li>Focused on personal and professional development including GATE preparation.</li>
+                <li>Volunteered  and working at an NGO.</li>
+                <li>Self-learned Python and Django.</li>
+                <!-- <li>Created design presentations and proposals a month for  Senior managers</li> -->
+              </ul>
+            </div><!-- Edn Resume Item -->
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Resume Section -->
+{% endblock body %}

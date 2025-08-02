@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Search
+{% endblock title %}
+{% block hero %}
+     <h1>Welcome to SearchPage.</h1>
+     <p>This page  gives <span class="typed" data-typed-items="Technical knowledge ,Information on websites, Nature, Sports"></span></p>
+{% endblock hero %}
+{% block body %}
+<br>
+<br>
+{% for message in messages %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+               <strong>{{message}}</strong>
+               <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">bootstrap4 -->
+               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> 
+               <!-- <span aria-hidden="true">&times;</span>The btn-close already has a close (×) symbol built-in. By adding <span>&times;</span> inside it, it's causing two overlapping "×"s -->
+               </button> 
+          
+
+          </div>
+{% endfor %}
+<div class="row">
+    {% if data|length < 1 %}
+
+    <h1>Your search did not match.....</h1>
+    {% endif %}
+   {% for d in data reversed %}
+
+   <div class="col-md-4">
+        
+    <div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{d.image.url}}" class="img-fluid rounded-start" >
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><b>{{d.title}}</b></h5>
+        <p class="card-text">{{d.description}}</p>
+        <p class="card-text"><small class="text-body-secondary"><b>Last updated :</b>{{d.timeStamp}}</small></p>
+        <p class="card-text"><small class="text-body-secondary"><b>Uploaded by :</b>{{d.authorName}}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+   {% endfor %}
+
+</div>
+
+{% endblock body %}

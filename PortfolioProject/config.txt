@@ -1,0 +1,85 @@
+Instaall ALLAUTH
+pip install django-allauth
+__________________________________________
+
+In settings.py add below configuration -
+___________________________________________
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django.contrib.sites', # added new for google account
+    'PortfolioApp',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+]
+ _____________________________________________
+ AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+______________________________________________
+SOCIALACCOUNT_PROVIDERS = {  
+    'google':{
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access type':'online',
+        }
+            
+    }
+}
+
+_________________________________________________
+Go to login.html add the socialaccount
+
+CREATE TEMPLATE CREATE SOCIAL_APP FOLDER AND ADD INDEX.HTML
+
+{% load socialaccount %}
+___________________________________
+Added one line in middleware-'allauth.account.middleware.AccountMiddleware',
+--------------------------------------------------
+We have  urls account in urls.py
+
+Installed PyJWT manually.
+Installed requests-oauthlib.
+Installed cryptography manually.
+____________________________________
+Then run migration command
+______________________________________________________________________________________________
+CREATE API CONSOLE WATCH VIDEO CAREFULLY
+1- Go to link https: //console.developers. google.com/
+
+2- Dashboard create a project and proceed.
+3-Dashboard go to credentials on the dropdown ,choose oauth client.
+4-Dashboard oauth consent screen create external give app name and save.
+5-Create oauth client ID
+
+6-Authorised javascript origins -https://127.0.0.1:8000
+
+Authorised redirect url - https://127.0.0.1:8000/accounts/google/login/callback/
+Get credentials.
+_______________________________Do this is django admin- socialaccounts________________
+Provider : google
+Name : Google API
+Client_id 
+Secret key
+______________________________________________________________________________________________
+ADD SITE_ID IT'S UNIQUE TO EACH CLLIENT_ID
+Using terminal cmd 
+.\manage.py shell or python manage.py shell
+
+from django.contrib.sites.models import Site
+sites =Site()
+sites.domain='http://127.0.0.1:8000'
+sites.name='https://127.0.0.1:8000'
+sites.save()
+print (sites.id)
+after this whatever the site id you get update it on your settings

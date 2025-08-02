@@ -1,0 +1,58 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+
+{% endblock title %}
+
+{% block hero %}
+     <h1>KAJAL CHAND</h1>
+     <p>I'm a <span class="typed" data-typed-items="Software Engineer,Designer, Developer, Freelancer, NGO Volunteer">Designer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+     {% for message in messages %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="bt-close" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+     {% endfor %}
+     
+     <div class="social-links">
+      <a href="#"><i class="bi bi-twitter-x"></i></a>
+      <!-- <a href="#"><i class="bi bi-facebook"></i></a> -->
+      <!-- <a href="https://www.instagram.com/kajal_chand932975"><i class="bi bi-instagram"></i></a> -->
+      
+
+      <a href="https://github.com/Kjch08"><i class="bi bi-github"></i></a>
+      <a href="https://www.linkedin.com/in/kajal-chand-2587891a4/"><i class="bi bi-linkedin"></i></a>
+     </div>
+{% endblock hero %}
+
+{% block body %}
+<br>
+<br>
+<h1>Welcome to Home Page {{user.first_name}}</h1>
+<hr>
+<div class="row">
+  <h1 class ="text-center">Skills</h1>
+  <hr>
+   {% for i in data %}
+   <div class="col-md-3">
+    <div class="card text-bg-success mb-3" style="max-width: 18rem;">
+      <div class="card-header">{{i.skill}} </div>
+      <div class="card-body">
+       <h5 class="card-title">Experience:{{i.experience}}</h5>
+    
+      </div>
+    </div>
+     
+   </div>
+    {% endfor %}
+    
+  </div>
+  <br>
+  <br>
+  <br>
+  <h6 class="text-center bg-dark text-light">Developed by Kajal</h1>
+{% endblock body %}
